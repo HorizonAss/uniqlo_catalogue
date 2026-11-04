@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UNIQLO 四地区商品档案目录 · UK / AU / US / CN</title>
+  <meta name="description" content="英国、澳大利亚、美国、中国大陆优衣库公开在售商品档案式目录：数据集说明、总览、分类体系、可折叠商品条目与检索。" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#catalogue">跳到商品目录</a>
+
+  <header class="masthead">
+    <div class="masthead__inner">
+      <p class="masthead__kicker">Dataset archive · 商品档案目录</p>
+      <h1 class="masthead__title">UNIQLO 四地区商品目录</h1>
+      <p class="masthead__subtitle">英国 · 澳大利亚 · 美国 · 中国大陆 — 公开在售商品的标准化变体记录</p>
+      <dl class="masthead__meta" id="masthead-meta">
+        <div><dt>数据生成时间</dt><dd id="meta-generated">读取中…</dd></div>
+        <div><dt>覆盖市场</dt><dd id="meta-markets">读取中…</dd></div>
+        <div><dt>变体记录数</dt><dd id="meta-records">—</dd></div>
+        <div><dt>商品款式数</dt><dd id="meta-products">—</dd></div>
+      </dl>
+      <p class="masthead__actions">
+        <a class="button" id="download-workbook" href="./downloads/uniqlo_current_all_markets.xlsx" download>下载 Excel 工作簿</a>
+        <span class="masthead__hint">页面仅加载数据文件，不内嵌商品记录。</span>
+      </p>
+      <p id="portable-note" class="status status--ok" hidden>
+        当前为<b>便携版</b>：数据以本地脚本文件形式加载，<b>双击 index.html 即可离线浏览</b>，无需 HTTP 服务。
+      </p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- 全局状态 -->
+    <div id="global-status" class="status status--loading" role="status" aria-live="polite">
+      <span class="status__spinner" aria-hidden="true"></span>
+      <span class="status__text">正在加载数据清单 manifest…</span>
+      <button type="button" class="status__retry" id="global-retry" hidden>重试</button>
+    </div>
+
+    <!-- 01 数据集说明 -->
+    <section class="panel" id="about" aria-labelledby="about-title">
+      <header class="panel__head">
+        <h2 id="about-title"><span class="panel__index">01</span> 数据集说明</h2>
+        <p class="panel__lead">本目录由同一份规范化数据同时生成 Excel 工作簿与网页数据文件；口径与限制见下。</p>
+      </header>
+      <div class="panel__body">
+        <dl class="facts" id="facts-list">
+          <div><dt>数据来源</dt><dd>各市场官网公开商品目录接口与商品详情数据（无需登录）</dd></div>
+          <div><dt>唯一键</dt><dd><code>variant_key</code> 为项目自建键，<strong>不是</strong>官方 SKU</dd></div>
+          <div><dt>在售口径</dt><dd><code>is_listed</code>（是否在公开目录中出现）与 <code>stock_status</code>（单变体库存）分开表达</dd></div>
+          <div><dt>价格口径</dt><dd>保留各市场本地币种，不在不同币种间求和或直接比较</dd></div>
+          <div><dt>未知值</dt><dd>缺失数据显示为“未提供”，库存无法确认显示为“未知”，绝不填充推测值</dd></div>
+        </dl>
+        <div id="completeness" class="warnings" hidden>
+          <h3>采集完整性提示</h3>
+          <ul id="completeness-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 档案总览 -->
+    <section class="panel" id="overview" aria-labelledby="overview-title">
+      <header class="panel__head">
+        <h2 id="overview-title"><span class="panel__index">02</span> 档案总览</h2>
+        <p class="panel__lead">计数全部来自 <code>data/summary.json</code>，与 Excel 明细行使用同一数据源。</p>
+      </header>
+      <div class="panel__body">
+        <div class="cards" id="overview-cards"></div>
+        <div class="table-wrap">
+          <table class="data-table" id="market-table">
+            <caption>各市场采集覆盖情况</caption>
+            <thead>
+              <tr>
+                <th scope="col">市场</th>
+                <th scope="col">状态</th>
+                <th scope="col">币种</th>
+                <th scope="col">变体数</th>
+                <th scope="col">发现商品</th>
+                <th scope="col">价格覆盖</th>
+                <th scope="col">库存覆盖</th>
+                <th scope="col">说明</th>
+              </tr>
+            </thead>
+            <tbody id="market-table-body">
+              <tr><td colspan="8" class="muted">加载中…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="distribution" id="distribution">
+          <div>
+            <h3>库存状态分布</h3>
+            <ul class="bar-list" id="stock-distribution"></ul>
+          </div>
+          <div>
+            <h3>部门分布</h3>
+            <ul class="bar-list" id="department-distribution"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 分类体系 -->
+    <section class="panel" id="taxonomy" aria-labelledby="taxonomy-title">
+      <header class="panel__head">
+        <h2 id="taxonomy-title"><span class="panel__index">03</span> 分类体系</h2>
+        <p class="panel__lead">目录树由采集到的官方部门 / 大类 / 细分类生成，点击任一节点即可筛选目录。</p>
+      </header>
+      <div class="panel__body">
+        <div class="tabs" id="taxonomy-tabs" role="tablist" aria-label="选择市场分类"></div>
+        <div class="tree" id="taxonomy-tree" role="tree" aria-label="分类目录树">
+          <p class="muted">加载中…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 商品目录 -->
+    <section class="panel panel--wide" id="catalogue" aria-labelledby="catalogue-title">
+      <header class="panel__head">
+        <h2 id="catalogue-title"><span class="panel__index">04</span> 商品目录与检索</h2>
+        <p class="panel__lead">按商品名、商品代码、颜色、尺码检索；按市场 / 部门 / 分类 / 库存 / 价格筛选。</p>
+      </header>
+
+      <form class="filters" id="filters" role="search" onsubmit="return false;">
+        <div class="filters__row">
+          <label class="field field--grow">
+            <span class="field__label">关键词</span>
+            <input type="search" id="filter-q" name="q" placeholder="商品名 / 代码 / l2Id / 颜色 / 尺码，例如 Padded、E487518、u0000000067702、386361、BLACK、130" autocomplete="off" />
+          </label>
+          <label class="field">
+            <span class="field__label">市场</span>
+            <select id="filter-market" name="market"><option value="">全部市场</option></select>
+          </label>
+          <label class="field">
+            <span class="field__label">部门</span>
+            <select id="filter-department" name="department"><option value="">全部部门</option></select>
+          </label>
+          <label class="field">
+            <span class="field__label">库存状态</span>
+            <select id="filter-stock" name="stock">
+              <option value="">全部状态</option>
+              <option value="in_stock">有货 in_stock</option>
+              <option value="low_stock">少量 low_stock</option>
+              <option value="out_of_stock">缺货 out_of_stock</option>
+              <option value="preorder">预售 preorder</option>
+              <option value="not_listed">未上架 not_listed</option>
+              <option value="unknown">未知 unknown</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">颜色</span>
+            <select id="filter-color" name="color"><option value="">全部颜色</option></select>
+          </label>
+          <label class="field">
+            <span class="field__label">尺码</span>
+            <select id="filter-size" name="size"><option value="">全部尺码</option></select>
+          </label>
+        </div>
+        <div class="filters__row">
+          <label class="field field--grow">
+            <span class="field__label">分类路径</span>
+            <input type="text" id="filter-category" name="category" placeholder="可用 > 指定完整路径，例如 男装 > 内衣；只填分类名则跨部门匹配" autocomplete="off" />
+          </label>
+          <label class="field">
+            <span class="field__label">价格下限</span>
+            <input type="number" id="filter-price-min" name="price_min" min="0" step="0.01" placeholder="不限" />
+          </label>
+          <label class="field">
+            <span class="field__label">价格上限</span>
+            <input type="number" id="filter-price-max" name="price_max" min="0" step="0.01" placeholder="不限" />
+          </label>
+          <label class="field">
+            <span class="field__label">排序</span>
+            <select id="filter-sort" name="sort">
+              <option value="relevance">相关度</option>
+              <option value="name">商品名 A→Z</option>
+              <option value="price_asc">售价 低→高</option>
+              <option value="price_desc">售价 高→低</option>
+              <option value="captured_desc">采集时间 新→旧</option>
+              <option value="stock">库存状态</option>
+            </select>
+          </label>
+          <button type="button" class="button button--ghost" id="filter-reset">重置筛选</button>
+          <label class="field field--check">
+            <input type="checkbox" id="group-products" checked />
+            <span>按商品合并（颜色 / 尺码选项卡）</span>
+          </label>
+        </div>
+        <p class="filters__hint" id="price-scope-hint" hidden>
+          价格排序/比较仅在单一市场（单一币种）内有效，请先选择市场。
+        </p>
+      </form>
+
+      <div class="results" id="results" aria-live="polite">
+        <div class="results__bar">
+          <p class="results__summary" id="results-summary">正在加载搜索索引…</p>
+        </div>
+        <p class="results__note" id="category-note" hidden></p>
+        <ol class="entries" id="entries"></ol>
+        <nav class="pager" id="pager" aria-label="结果分页">
+          <label class="pager__size">
+            <span>每页</span>
+            <select id="page-size" name="page_size">
+              <option value="10" selected>10 条</option>
+              <option value="20">20 条</option>
+              <option value="50">50 条</option>
+              <option value="100">100 条</option>
+              <option value="0">全部</option>
+            </select>
+          </label>
+          <div class="pager__controls">
+            <button type="button" class="button button--ghost" id="page-first">« 首页</button>
+            <button type="button" class="button button--ghost" id="page-prev">‹ 上一页</button>
+            <span class="pager__indicator" id="page-indicator">第 1 / 1 页</span>
+            <button type="button" class="button button--ghost" id="page-next">下一页 ›</button>
+            <button type="button" class="button button--ghost" id="page-last">末页 »</button>
+          </div>
+          <label class="pager__jump">
+            <span>跳至</span>
+            <input type="number" id="page-jump" name="page" min="1" step="1" inputmode="numeric" />
+            <span>页</span>
+          </label>
+        </nav>
+        <div class="status status--empty" id="empty-state" hidden>
+          <span class="status__text">没有匹配的记录。请调整关键词或筛选条件。</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>UNIQLO 四地区商品档案目录 · 数据由 uniqlo-crawler 生成 · <span id="footer-generated">—</span></p>
+    <p class="muted">商品名称、价格与库存均为对应市场官方页面公开信息，价格以本地币种计。</p>
+  </footer>
+
+  <template id="entry-template">
+    <li class="entry">
+      <img class="entry__thumb" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" hidden />
+      <div class="entry__head">
+        <h3 class="entry__title"><a class="entry__link" rel="noopener noreferrer" target="_blank"></a></h3>
+        <p class="entry__tags">
+          <span class="tag tag--market"></span>
+          <span class="tag tag--stock"></span>
+          <span class="tag tag--price"></span>
+        </p>
+      </div>
+      <dl class="entry__meta">
+        <div><dt>商品代码</dt><dd class="entry__code"></dd></div>
+        <div class="entry__vcode-wrap"><dt>变体代码</dt><dd class="entry__vcode"></dd></div>
+        <div><dt>颜色</dt><dd class="entry__color"></dd></div>
+        <div><dt>尺码</dt><dd class="entry__size"></dd></div>
+        <div><dt>分类</dt><dd class="entry__category"></dd></div>
+        <div><dt>变体键</dt><dd class="entry__key"></dd></div>
+        <div><dt>采集时间</dt><dd class="entry__captured"></dd></div>
+      </dl>
+      <div class="entry__actions">
+        <button type="button" class="button button--ghost entry__toggle" aria-expanded="false">展开完整记录</button>
+        <a class="entry__official" rel="noopener noreferrer" target="_blank">官网商品页 ↗</a>
+      </div>
+      <div class="entry__detail" hidden></div>
+    </li>
+  </template>
+
+  <script src="./assets/app.js" defer></script>
+</body>
+</html>
