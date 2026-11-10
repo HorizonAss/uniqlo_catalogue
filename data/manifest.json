@@ -1,0 +1,684 @@
+{
+ "schema_version": 1,
+ "generated_at": "2026-11-10T07:07:19Z",
+ "run_id": "20261110T061614Z-1.0.0",
+ "program_version": "1.0.0",
+ "config_version": "2026.05.19-1",
+ "data_base_url": "./data/",
+ "asset_base_url": "./assets/",
+ "path_bases": {
+  "data": "./data/",
+  "downloads": "./",
+  "note": "partition/search_index paths are relative to data_base_url; downloads paths are relative to the page"
+ },
+ "downloads": {
+  "workbook": "downloads/uniqlo_current_all_markets.xlsx",
+  "bytes": 33713906,
+  "sha256": "13e54e99a1179c4be72b125dabc1e6a2bf29cca92f3682b77ce23fe66072e211"
+ },
+ "markets": [
+  {
+   "code": "UK",
+   "name": "United Kingdom",
+   "currency_code": "GBP",
+   "site_origin": "https://www.uniqlo.com",
+   "status": "ok",
+   "variant_count": 28651,
+   "search_index_path": "search-index/UK.json"
+  },
+  {
+   "code": "AU",
+   "name": "Australia",
+   "currency_code": "AUD",
+   "site_origin": "https://www.uniqlo.com",
+   "status": "ok",
+   "variant_count": 18743,
+   "search_index_path": "search-index/AU.json"
+  },
+  {
+   "code": "US",
+   "name": "United States",
+   "currency_code": "USD",
+   "site_origin": "https://www.uniqlo.com",
+   "status": "ok",
+   "variant_count": 22897,
+   "search_index_path": "search-index/US.json"
+  },
+  {
+   "code": "CN",
+   "name": "China Mainland",
+   "currency_code": "CNY",
+   "site_origin": "https://www.uniqlo.cn",
+   "status": "ok",
+   "variant_count": 47799,
+   "search_index_path": "search-index/CN.json"
+  }
+ ],
+ "total_records": 118090,
+ "partition_record_sum": 118090,
+ "search_index": [
+  {
+   "path": "search-index/AU.json",
+   "parts": [
+    "search-index/AU.json"
+   ],
+   "region_code": "AU",
+   "record_count": 18743,
+   "bytes": 14978805,
+   "sha256": "e941f9572f9bde0ddacca9f4c413265c308062c38064577af267889a1b0c3f9b"
+  },
+  {
+   "path": "search-index/CN.json",
+   "parts": [
+    "search-index/CN.json",
+    "search-index/CN-2.json"
+   ],
+   "region_code": "CN",
+   "record_count": 47799,
+   "bytes": 37335248,
+   "sha256": "631d6603a3112004b4b4607be3659cf96a0bd76845579ebba2161f624b32fea3"
+  },
+  {
+   "path": "search-index/UK.json",
+   "parts": [
+    "search-index/UK.json",
+    "search-index/UK-2.json"
+   ],
+   "region_code": "UK",
+   "record_count": 28651,
+   "bytes": 23539303,
+   "sha256": "b088ad82c656b5ad8e6d4688488837ba69a3742579f1dafead41c905d1d2a0dc"
+  },
+  {
+   "path": "search-index/US.json",
+   "parts": [
+    "search-index/US.json"
+   ],
+   "region_code": "US",
+   "record_count": 22897,
+   "bytes": 18510129,
+   "sha256": "476d464df75cec6fc7eaab1651e5f9cbd1f68e78af6aa216e2a2194884143a6f"
+  }
+ ],
+ "partitions": [
+  {
+   "path": "records/AU/baby.json",
+   "region_code": "AU",
+   "department": "Baby",
+   "record_count": 524,
+   "bytes": 1304654,
+   "sha256": "1cabdc29effb07f218bdc951efe323400d468e16e2a13cf6e82e6f6137c521a6"
+  },
+  {
+   "path": "records/AU/kids.json",
+   "region_code": "AU",
+   "department": "Kids",
+   "record_count": 1665,
+   "bytes": 4030668,
+   "sha256": "f6b6425cf8787dd853e8104628031deb72320d6428e70bbf5902f44034394f35"
+  },
+  {
+   "path": "records/AU/men-1.json",
+   "region_code": "AU",
+   "department": "Men",
+   "record_count": 2099,
+   "bytes": 5019254,
+   "sha256": "f6413e9efe70723eda589ce62e1910ddd5cc3467a91482c747376b0968979d56"
+  },
+  {
+   "path": "records/AU/men-2.json",
+   "region_code": "AU",
+   "department": "Men",
+   "record_count": 1443,
+   "bytes": 3465488,
+   "sha256": "20d8ce027a98134c8c426c6e2e52582563794d7f1a6d36b05bda0d23b556876d"
+  },
+  {
+   "path": "records/AU/unisex-1.json",
+   "region_code": "AU",
+   "department": "Unisex",
+   "record_count": 2093,
+   "bytes": 5020932,
+   "sha256": "75a8fe69faeda9d86aea0bd5db751892d3fb3c949cf92fad306d23704c837449"
+  },
+  {
+   "path": "records/AU/unisex-2.json",
+   "region_code": "AU",
+   "department": "Unisex",
+   "record_count": 2064,
+   "bytes": 5021675,
+   "sha256": "ac0540aeb316eaa765e2a764e56ed2958af64aadc0304bc250f89380197597ca"
+  },
+  {
+   "path": "records/AU/unisex-3.json",
+   "region_code": "AU",
+   "department": "Unisex",
+   "record_count": 1202,
+   "bytes": 2935162,
+   "sha256": "20c542d2339076ba904cc5e459dceba86b490ea4bf049199a33927baecc2eb3a"
+  },
+  {
+   "path": "records/AU/women-1.json",
+   "region_code": "AU",
+   "department": "Women",
+   "record_count": 2097,
+   "bytes": 5020294,
+   "sha256": "b27103adf4c59a81b27f3181018fc6195b581461eaf26e670ef3db85ca914bf7"
+  },
+  {
+   "path": "records/AU/women-2.json",
+   "region_code": "AU",
+   "department": "Women",
+   "record_count": 2101,
+   "bytes": 5019037,
+   "sha256": "eb4e8c77e7c7afd085cd0a3eb4673a6a9053a1beb58566e94a4dc639a5ca84b7"
+  },
+  {
+   "path": "records/AU/women-3.json",
+   "region_code": "AU",
+   "department": "Women",
+   "record_count": 2088,
+   "bytes": 5020704,
+   "sha256": "5e8ea929473b4dbb139f089dadc3afcccd523a1d4b7a6b4f52f15e19b8c04855"
+  },
+  {
+   "path": "records/AU/women-4.json",
+   "region_code": "AU",
+   "department": "Women",
+   "record_count": 1367,
+   "bytes": 3279738,
+   "sha256": "3fe6d682adbdc7d63634116ee6d97c096683e52e950aefe603a58dddaaf29d95"
+  },
+  {
+   "path": "records/CN/baby.json",
+   "region_code": "CN",
+   "department": "Baby",
+   "record_count": 977,
+   "bytes": 3001576,
+   "sha256": "304e3116c1ad7b01a4399fa51a02e4672be340cc1f0ad25882b9f4574e48dd2b"
+  },
+  {
+   "path": "records/CN/kids-1.json",
+   "region_code": "CN",
+   "department": "Kids",
+   "record_count": 1911,
+   "bytes": 5842991,
+   "sha256": "e6fc08a8fdbe37c3888e298dd978f8d46583ed49563685ae5b2273e76ac92fc6"
+  },
+  {
+   "path": "records/CN/kids-2.json",
+   "region_code": "CN",
+   "department": "Kids",
+   "record_count": 1553,
+   "bytes": 4510672,
+   "sha256": "6cc0e4b219f609ee6515ee8c291955f700c34153edabba0593d00c4179787a3e"
+  },
+  {
+   "path": "records/CN/men-1.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1806,
+   "bytes": 6003380,
+   "sha256": "f0aaefc5ea532cb1db4617b251d80f679eea9d7f119d3e847405a93a8368c7a3"
+  },
+  {
+   "path": "records/CN/men-2.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1817,
+   "bytes": 6021202,
+   "sha256": "e248b9610f2579c332767194404145cd1fe023799e65669e8e74ebf2eb8e9762"
+  },
+  {
+   "path": "records/CN/men-3.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1759,
+   "bytes": 6449686,
+   "sha256": "fc70c72cc25ae8ad9e8b4210ed5e9bb433ee6cab4b3e6c7cd664b083c6aa6765"
+  },
+  {
+   "path": "records/CN/men-4.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1891,
+   "bytes": 6010631,
+   "sha256": "5cda5ea7351a8d673b7f520bde66ddbd89cb91da08da22d36b16c4a34ed606ac"
+  },
+  {
+   "path": "records/CN/men-5.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1835,
+   "bytes": 5932419,
+   "sha256": "9668c680203f32a13fb22c924991e30f012ac124f5e523a4b049a87509ca9326"
+  },
+  {
+   "path": "records/CN/men-6.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1825,
+   "bytes": 5884273,
+   "sha256": "7840af65532c444966197a93c5e130c3ed748aa12a010a0f1a2c7aac73686e9f"
+  },
+  {
+   "path": "records/CN/men-7.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1852,
+   "bytes": 5956231,
+   "sha256": "76cdee7e3cf2ed3e3c2fd2b05d3f7b517b54e171139e2a4182710a0d6d0c7852"
+  },
+  {
+   "path": "records/CN/men-8.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1888,
+   "bytes": 5845288,
+   "sha256": "c3e2eda3477bca331cbb436fb6110bed085f5f7ad23cf33482f2cabaf7a55862"
+  },
+  {
+   "path": "records/CN/men-9.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1934,
+   "bytes": 5810464,
+   "sha256": "91418568c373934890fc578e7bbc3b09979589c987cfd6e8c70e3fa91f6d13cc"
+  },
+  {
+   "path": "records/CN/men-10.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1788,
+   "bytes": 6134221,
+   "sha256": "2054cb1cd1bd9c551575e0a6a8cc84dba209ac852a13f457a76be92cc037126a"
+  },
+  {
+   "path": "records/CN/men-11.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1868,
+   "bytes": 5873597,
+   "sha256": "b2011cbc34fe0ba8dcef9515626dc54171070918c8055b86509182f935bc0a05"
+  },
+  {
+   "path": "records/CN/men-12.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1860,
+   "bytes": 6078757,
+   "sha256": "4caa6dd809badcecb27030e922c31f6543207f58abb294f20d803b4e3f8ae87b"
+  },
+  {
+   "path": "records/CN/men-13.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 1772,
+   "bytes": 6320491,
+   "sha256": "b2977b009cce49392af96293a3fee03f8128ac4f5fd05b32cfd7b8a6efdc71be"
+  },
+  {
+   "path": "records/CN/men-14.json",
+   "region_code": "CN",
+   "department": "Men",
+   "record_count": 811,
+   "bytes": 2973469,
+   "sha256": "d74fc7927148679fd6660adcaf06487f2fd14188ec0d54a5a8be0d1bf49df1e6"
+  },
+  {
+   "path": "records/CN/women-1.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1876,
+   "bytes": 5760768,
+   "sha256": "aa99ee04e20d47482d0514d23f5bbb8d250d74a57c01e70e5db58c97ceed0c8b"
+  },
+  {
+   "path": "records/CN/women-2.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1794,
+   "bytes": 6220881,
+   "sha256": "f8b98a1c41b1dc09e50c18cb0228629c7c3a1d04eb1817c7509a031c757522dd"
+  },
+  {
+   "path": "records/CN/women-3.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1906,
+   "bytes": 5958190,
+   "sha256": "e5830a6feb6da9bcf9eb657f865c06e83f08afd19c155184f7a950e90b740abe"
+  },
+  {
+   "path": "records/CN/women-4.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1861,
+   "bytes": 5946007,
+   "sha256": "6306b0f279a33bb3535aff0222bbe5b0cb110d749b3d159342e85676adb01fe4"
+  },
+  {
+   "path": "records/CN/women-5.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1897,
+   "bytes": 5846605,
+   "sha256": "0af180c6c06d0afdd78df5c5c517fe39953cd1e8d3ba57f4fc0cbcb4c6a44ec6"
+  },
+  {
+   "path": "records/CN/women-6.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1976,
+   "bytes": 5627048,
+   "sha256": "14b812c1bf5710af7c9f91bdbfd2ec5dc5e269730d8a60ffe2130dc9737073ef"
+  },
+  {
+   "path": "records/CN/women-7.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1929,
+   "bytes": 5587788,
+   "sha256": "a75eebbcea2f06e41fa7bc3be42c3975ff9a7827927114e797ef9c4d90d5ebb5"
+  },
+  {
+   "path": "records/CN/women-8.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1909,
+   "bytes": 5727739,
+   "sha256": "95499b7b8f58b86449ea07e78bcb74b3c5a1b003754b8db9f46616d9d490bbc9"
+  },
+  {
+   "path": "records/CN/women-9.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1876,
+   "bytes": 5743114,
+   "sha256": "c18f1240bd748596999f3513c18eff8bf760626ce8d6d4bf603382d8819af00d"
+  },
+  {
+   "path": "records/CN/women-10.json",
+   "region_code": "CN",
+   "department": "Women",
+   "record_count": 1628,
+   "bytes": 4768840,
+   "sha256": "c517e219283af840261e2b2ab0e27921d808fb49b9ddf0335f6dd86fc05f7384"
+  },
+  {
+   "path": "records/UK/baby.json",
+   "region_code": "UK",
+   "department": "Baby",
+   "record_count": 687,
+   "bytes": 1711547,
+   "sha256": "e4ce910ea017ed65c0477cec0a4ae1bb7fab18c034ba6bdf3018e6a1f1d0ba29"
+  },
+  {
+   "path": "records/UK/kids.json",
+   "region_code": "UK",
+   "department": "Kids",
+   "record_count": 1812,
+   "bytes": 4457218,
+   "sha256": "6db9299be7bed0a2b5e66b2cd35ffe6d6b4c76c175079a7bb51b2fbe1bc9796a"
+  },
+  {
+   "path": "records/UK/men-1.json",
+   "region_code": "UK",
+   "department": "Men",
+   "record_count": 2049,
+   "bytes": 5023807,
+   "sha256": "ed5a6562b8e992cbb8c523789965289b533603dad861086282ac0e2029b5c7fd"
+  },
+  {
+   "path": "records/UK/men-2.json",
+   "region_code": "UK",
+   "department": "Men",
+   "record_count": 2031,
+   "bytes": 5027174,
+   "sha256": "6ba4befbb2adb20f5508f0fb1c5dbfce38082b6785b75cecbe5912edecfe5c70"
+  },
+  {
+   "path": "records/UK/men-3.json",
+   "region_code": "UK",
+   "department": "Men",
+   "record_count": 2043,
+   "bytes": 5025777,
+   "sha256": "5cf2a7062a98d5fd2f173f13e0e9ad5b6a88349dcbc6154b0550e891bda84833"
+  },
+  {
+   "path": "records/UK/men-4.json",
+   "region_code": "UK",
+   "department": "Men",
+   "record_count": 1482,
+   "bytes": 3643295,
+   "sha256": "fdfed16229bf06cca830018f87f59e610df3f366c892b11e753eda1ecc476bba"
+  },
+  {
+   "path": "records/UK/unisex-1.json",
+   "region_code": "UK",
+   "department": "Unisex",
+   "record_count": 1996,
+   "bytes": 5029688,
+   "sha256": "d22a2ad0c9ccc32e3afdb1855db3aa403a0c868cd0e0cd8021e7da21e06fc1e8"
+  },
+  {
+   "path": "records/UK/unisex-2.json",
+   "region_code": "UK",
+   "department": "Unisex",
+   "record_count": 2007,
+   "bytes": 5028084,
+   "sha256": "f2fe1b88ae26788b29fead66e8a57a7986323940d70ec0c5d1ec861e3b887056"
+  },
+  {
+   "path": "records/UK/unisex-3.json",
+   "region_code": "UK",
+   "department": "Unisex",
+   "record_count": 1989,
+   "bytes": 5029680,
+   "sha256": "c8c12fa4579e64b03fad3265d8610726c231a0ee49af86169d80b1b575790030"
+  },
+  {
+   "path": "records/UK/unisex-4.json",
+   "region_code": "UK",
+   "department": "Unisex",
+   "record_count": 444,
+   "bytes": 1098073,
+   "sha256": "d829a56ec4ce1294a9f6372843aa303a85f78974811a0f139286d92cf85a4cca"
+  },
+  {
+   "path": "records/UK/women-1.json",
+   "region_code": "UK",
+   "department": "Women",
+   "record_count": 2048,
+   "bytes": 5023522,
+   "sha256": "653e52e8358dbb3ff23520ac7539f1ba5b3002a65ba8a9ad031278dbb2b623e8"
+  },
+  {
+   "path": "records/UK/women-2.json",
+   "region_code": "UK",
+   "department": "Women",
+   "record_count": 2017,
+   "bytes": 5027600,
+   "sha256": "f76cfd456141d462ed6f3a55f78f807f3eda02da2f6a902aa3a928dd952c006e"
+  },
+  {
+   "path": "records/UK/women-3.json",
+   "region_code": "UK",
+   "department": "Women",
+   "record_count": 2005,
+   "bytes": 5028714,
+   "sha256": "0ba827947954b9d9911f28cbb31a401e59c042bf22a77b77c957ad3cfeaa5910"
+  },
+  {
+   "path": "records/UK/women-4.json",
+   "region_code": "UK",
+   "department": "Women",
+   "record_count": 2034,
+   "bytes": 5026710,
+   "sha256": "cfdc3129d1af09bcdc67d1076ee6b13aa9515fc6306686dcfb996db32939e793"
+  },
+  {
+   "path": "records/UK/women-5.json",
+   "region_code": "UK",
+   "department": "Women",
+   "record_count": 2024,
+   "bytes": 5027861,
+   "sha256": "1c7b6599247d240e40c88eec159744143519f2e3e9b3fb10e89480687c4de821"
+  },
+  {
+   "path": "records/UK/women-6.json",
+   "region_code": "UK",
+   "department": "Women",
+   "record_count": 1983,
+   "bytes": 4977633,
+   "sha256": "fcfa5a8e7d7ccb55bc6323acba0ac2afd51bd6aac13f1c22c406294265b3a131"
+  },
+  {
+   "path": "records/US/baby.json",
+   "region_code": "US",
+   "department": "Baby",
+   "record_count": 379,
+   "bytes": 950735,
+   "sha256": "c4bace7eb75c994836c1e6fdfec29dcf345ad228dd09db9f99ff10812d6540b6"
+  },
+  {
+   "path": "records/US/kids.json",
+   "region_code": "US",
+   "department": "Kids",
+   "record_count": 1661,
+   "bytes": 4043240,
+   "sha256": "2d6e83a431c14de22e2dc415c3af7c05fb7f5b954bae1582fb10680bcbb7b303"
+  },
+  {
+   "path": "records/US/men-1.json",
+   "region_code": "US",
+   "department": "Men",
+   "record_count": 2060,
+   "bytes": 5022822,
+   "sha256": "0c6749da89707c256674a0b48030aa8c8e444a1096b6cb7d31b23835e93ac9d1"
+  },
+  {
+   "path": "records/US/men-2.json",
+   "region_code": "US",
+   "department": "Men",
+   "record_count": 2080,
+   "bytes": 5020744,
+   "sha256": "0cb1fdde15cea22d46ec5d867d41862d54d75bf11e48794d8dd8262615d307df"
+  },
+  {
+   "path": "records/US/men-3.json",
+   "region_code": "US",
+   "department": "Men",
+   "record_count": 1735,
+   "bytes": 4155136,
+   "sha256": "676fd8f933f408edd03e13fbe6eb292355a028be2b482e3a7ba7b54b04839f71"
+  },
+  {
+   "path": "records/US/unisex-1.json",
+   "region_code": "US",
+   "department": "Unisex",
+   "record_count": 2025,
+   "bytes": 5026368,
+   "sha256": "2c85addc11afe1f805d48e53b13bf758786fa89e43db3005aafd9c42864da4c1"
+  },
+  {
+   "path": "records/US/unisex-2.json",
+   "region_code": "US",
+   "department": "Unisex",
+   "record_count": 2027,
+   "bytes": 5027456,
+   "sha256": "3595ca3396c25cddaf6b114c37b3a11f3d7e4dd46f50208ceb88b69b918e706a"
+  },
+  {
+   "path": "records/US/unisex-3.json",
+   "region_code": "US",
+   "department": "Unisex",
+   "record_count": 2011,
+   "bytes": 5028741,
+   "sha256": "ad7926bf6a2da01a88f6f33a0b5c878a320f87e4ff73b2bb89ada5eddbba3bb2"
+  },
+  {
+   "path": "records/US/unisex-4.json",
+   "region_code": "US",
+   "department": "Unisex",
+   "record_count": 174,
+   "bytes": 428928,
+   "sha256": "2f991459ce9237665b67526a82119f721e79a44032faef9c5eb4464e946be27f"
+  },
+  {
+   "path": "records/US/women-1.json",
+   "region_code": "US",
+   "department": "Women",
+   "record_count": 2050,
+   "bytes": 5024507,
+   "sha256": "505cde6d6bd6786a731bfe63ce83cd9aa7c5cefdf14f2e9666d8f62a0ebaf61c"
+  },
+  {
+   "path": "records/US/women-2.json",
+   "region_code": "US",
+   "department": "Women",
+   "record_count": 2047,
+   "bytes": 5024510,
+   "sha256": "38b0583a04fefa86975dba86d6d326e7ee4eebe6d0d6982cdf7f6622bd973e8e"
+  },
+  {
+   "path": "records/US/women-3.json",
+   "region_code": "US",
+   "department": "Women",
+   "record_count": 2060,
+   "bytes": 5024243,
+   "sha256": "ee4f2866bcc7b97f60c7127f5b246954220112e0a520c32f3a18bdeea1cdbf34"
+  },
+  {
+   "path": "records/US/women-4.json",
+   "region_code": "US",
+   "department": "Women",
+   "record_count": 2057,
+   "bytes": 5024523,
+   "sha256": "dde48bb105943c4db4d3d9eab6a2c7d7515d84c004ce301e4f8d297d0cb913ab"
+  },
+  {
+   "path": "records/US/women-5.json",
+   "region_code": "US",
+   "department": "Women",
+   "record_count": 531,
+   "bytes": 1300230,
+   "sha256": "88c90647444f65993b239ba594d9f7784f2c8c471bb9bee6b4d316a86a760462"
+  }
+ ],
+ "search_entry_schema": [
+  "variant_key",
+  "region_code",
+  "product_name",
+  "product_url_key",
+  "cn_product_code",
+  "cn_variant_code",
+  "official_sku",
+  "official_l2_id",
+  "color_name",
+  "color_display_code",
+  "size_label",
+  "size_display_code",
+  "category_path",
+  "category_paths",
+  "department",
+  "price_current",
+  "currency_code",
+  "stock_status",
+  "is_purchasable",
+  "captured_at_utc",
+  "product_url",
+  "variant_url",
+  "partition"
+ ],
+ "thumbnails": {
+  "path": "thumbnails.json",
+  "count": 6326,
+  "local_count": 321,
+  "note": "keyed by '<region>|<product token>'; 'local' means the image is bundled with the site (delisted products), otherwise 'url' is loaded lazily"
+ },
+ "notes": [
+  "Records are loaded on demand: manifest -> summary/taxonomy -> market index -> partition files.",
+  "Every path is relative to this manifest and works when deployed in a subdirectory."
+ ]
+}
